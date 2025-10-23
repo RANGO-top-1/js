@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <p id="hour-label" class="label">Hours</p>
+        <p id="min-label" class="label-min">Minutes</p>
+        <p id="sec-label" class="label-sec">Seconds</p>
+        <div>
+        <input id="hour" type="number" max="99" min="0" value="0" class="time1">:
+        <input id="minute" type="number" max="60" min="0" value="0" class="time2">:
+        <input id="sec" type="number" max="60" min="0" value="0" class="time3">
+        </div>
+        <div class="btn">
+        <button id="start" class="btn1">Start</button>
+        <button id="stop" class="btn3">Stop</button>
+        <button id="reset" class="btn2">Reset</button>
+        </div>
+    </div>
+    <script src="df.js"></script>
+</body>
+</html>
