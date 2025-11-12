@@ -1,41 +1,63 @@
 const btn = document.querySelector("#btn");
-let str1 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
-let nEl;
-let resultStr = "";
-let startTime;
-//функции рандома
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+let arr = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
+let arr2 = ["a", "s", "d", "f", "g", "h", "j", "k", "l"];
+let arr3 = ["z", "x", "c", "v", "b", "n", "m"];
+let array = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"]
+let pystoe;
+let result = "";
+let a;
+// функция рандома
+function getRandomInt(random) {
+  return Math.round(Math.random() * random);
 }
-// сколько  элементов 
-function randText() {
-  for (let i = 0; i < 5; i++) {
-    nEl = getRandomInt(str1.length - 1);
-    console.log(nEl);
-    resultStr += str1[nEl];
+// функция выбора строки
+function stroka() {
+  a = +prompt("Какую строку хотите написать ?")
+  if (a == 1) {
+    a = arr;
+    result = "";
+  } else if (a == 2) {
+    a = arr2
+    result = "";
+  }
+  else if (a == 3) {
+    a = arr3
+    result = "";
+  }
+  else if (a == 4) {
+    a = array
+    result = "";
   }
 }
-
-function time() {
-
+// функция рандома символов
+function text() {
+  let hislo = +prompt("введите количество символов")
+  for (let i = 0; i < hislo; i++) {
+    pystoe = getRandomInt(a.length - 1);
+    console.log(pystoe);
+    result += a[pystoe];
+  }
 }
-function Name() {
-  // логика печати 
-  startTime = new Date();
-  randText();
+// начало работы всей печати
+function Start() {
+  stroka();
+  text();
+  let player = +prompt("Введите число попыток")
   while (true) {
-    let str = prompt(`Введите ${resultStr}`);
-    if (str === resultStr) {
-      alert(`Вы выиграли! Время: ${startTime.getSeconds()} `);
-      resultStr = '';
-      randText();
-    } else if (str == 0) {
-      resultStr = '';
-      break;
-    } else {
-      alert("ВСЁ ФИГНЯ ДАВАЙ ПО НОВОЙ");
+    let primi = prompt(`Введите: ${result}`);
+    if (primi === result) {
+      alert("Вы выиграли!");
+      result = "";
+      text();
+    }
+    else {
+      player--
+      alert("ВСЁ ФИГНЯ ДАВАЙ ПО НОВОЙ, осталось попаток: " + player);
+      if (player == 0) {
+        break
+      }
     }
   }
 }
-
-btn.addEventListener("click", Name);
+// кнопка
+btn.addEventListener("click", Start);
